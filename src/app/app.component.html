@@ -1,21 +1,45 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<mat-toolbar color="primary"><h1><button (click)="onWeatherClick()" mat-raised-button> Weather App!</button></h1></mat-toolbar>
+<br>
+  <div *ngIf="show==false">
+    <mat-card>
+      <form (submit)="onSearch(postForm)" #postForm="ngForm">
+          <mat-form-field>
+              <p>Zip Code</p>
+              <input matInput type="text" name="zipCode" ngModel required>
+            </mat-form-field><button mat-raised-button color="primary" type="submit">Enter</button>
+      </form>
+    </mat-card>
+  </div>
+  <br>
+  <div *ngIf="progress" style="margin:center">
+      <mat-spinner></mat-spinner>
+  </div>
+  <br>
+  <div *ngIf="show">
+    <mat-card>
+        <h1>{{ city }}</h1>
+        <h2>{{ state }}</h2>
+    </mat-card>
+    <br>
+  </div>
+  <div *ngIf="show" style="margin: auto;width:60%;">
+    <mat-accordion *ngFor="let card of info">
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <h3>{{ card.day }} - {{ card.date }}</h3>
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <mat-card-content class="details">
+                <div><strong>Temperature:</strong> {{ card.temp }} F</div>
+                <div><strong>Wind Speed:</strong> {{ card.windSpeed }}</div>
+                <div><strong>Wind Direction:</strong> {{ card.windDirection }}</div>
+                <div><strong>Forecast:</strong> {{ card.forecast }}</div>
+            </mat-card-content>
+        </mat-expansion-panel>
+          <br>
+        </mat-accordion>
+  </div>
 
-<router-outlet></router-outlet>
+
+
