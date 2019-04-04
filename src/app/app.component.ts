@@ -15,6 +15,7 @@ export class AppComponent {
   info;                                                                       // Variables to store data
   city;
   state;
+  zipCode;
   show = false;                                                               // bool flags for displaying Weather info and progress bar
   progress = false;
   readonly ROOT_URL = 'http://localhost:3000/zipcode/';                       // The URL for main.js backend server
@@ -48,6 +49,7 @@ export class AppComponent {
             this.show = true;
             this.city = this.info[0].city;                                    // Store the city name for zip code
             this.state = this.info[0].state;                                  // Store the state name for zip code
+            this.zipCode = form.value.zipCode;
          }
 
       });
