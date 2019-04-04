@@ -16,6 +16,15 @@ The app is rendered entirely on one page. I did not build out multiple component
 All the Angular code files are within src/app.
 The back-end server is main.js.
 
+## Screenshots
+
+UI.PNG              - opening look of UI
+invldZpcd.PNG       - invalid zip code
+invlidDig.PNG       - invalid number of digits
+UInumericError.PNG  - Numeric values only
+WeatherData         - Successful weather retrieval
+
+
 ## Development server
 
 Run `node main.js`to start node backend server. This runs on `http://localhost:3000/`. The front end makes calls to this node server. The node server then takes the zip code parameter and makes appropriate outgoing api calls to gather the weather information. Then the server constructs a response object with basic info about the weather and sends it to the Angular front end.
