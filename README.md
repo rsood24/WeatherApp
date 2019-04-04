@@ -19,9 +19,13 @@ The back-end server is main.js.
 ## Screenshots
 
 UI.PNG              - opening look of UI
+
 invldZpcd.PNG       - invalid zip code
+
 invlidDig.PNG       - invalid number of digits
+
 UInumericError.PNG  - Numeric values only
+
 WeatherData         - Successful weather retrieval
 
 
