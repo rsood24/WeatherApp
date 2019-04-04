@@ -5,7 +5,12 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ## Description
 
 This is a basic Angular app, which prompts the user for a zip code and displays weather information for the provided zip code.
-The front-end JavaScript does error checking on if there are 5 digits and if all are numeric values. The app makes a single API call to the node.js server in the main.js file. This server in turn makes all the outside api calls to gather weather data and send back to the front end. I seperated the front end from outgoing api calls because, in order to get basic weather info, the app has to make multiple calls and parse all the data returned. I wanted to seperate this data cleaning process from the front end. This way when the front end makes a request it gets clean data back, which is ready to use.
+The front-end JavaScript does error checking on if there are 5 digits and if all are numeric values. The app makes a single API call to the node.js server in the main.js file. This server in turn makes all the outside api calls to gather weather data and send back to the front end. To check for invalid zipcode, the app has to wait for the API calls to return. This error check is done when back-end server sends a response to the front end. The response includes a status flag which identifies if the zip code is valid. I seperated the front end from outgoing api calls because, in order to get basic weather info, the app has to make multiple calls and parse all the data returned. I wanted to seperate this data cleaning process from the front end. This way when the front end makes a request it gets clean data back, which is ready to use.
+
+The app is rendered entirely on one page. I did not build out multiple components for different parts of the UI. This was a small scale app, so all UI elements exist within a single component, the app component.
+
+All the Angular code files are within src/app.
+The back-end server is main.js.
 
 ## Development server
 

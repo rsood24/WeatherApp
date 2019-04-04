@@ -12,38 +12,42 @@ import { InternalFormsSharedModule } from '@angular/forms/src/directives';
 
 export class AppComponent {
   title = 'Weather-App';
-  info;
+  info;                                                                       // Variables to store data
   city;
   state;
-  show = false;
+  show = false;                                                               // bool flags for displaying Weather info and progress bar
   progress = false;
-  readonly ROOT_URL = 'http://localhost:3000/zipcode/';
+  readonly ROOT_URL = 'http://localhost:3000/zipcode/';                       // The URL for main.js backend server
 
-  data: Observable<object>;
+  data: Observable<object>;                                                   // objects to recieve response data
   WeatherData: Observable<object>;
 
 
   constructor(private http: HttpClient) {}
 
+  //////////////////////////////////////////////////
+  // Function for when user hits enter on zipcode.//
+  // Takes the user form as an argument           //
+  //////////////////////////////////////////////////
   onSearch(form: NgForm) {
-    if (form.value.zipCode.length === 5 && !isNaN(form.value.zipCode)) {
-      this.progress = true;
-      this.data = this.http.get(this.ROOT_URL + form.value.zipCode);
+
+    if (form.value.zipCode.length === 5 && !isNaN(form.value.zipCode)) {      // Error checking on the zip code
+      this.progress = true;                                                   // Set true before api call. Displays spinning loading symbol
+      this.data = this.http.get(this.ROOT_URL + form.value.zipCode);          // Send get request to back end with zip code.
       this.data.subscribe((stuff) => {
 
          this.info = JSON.stringify(stuff);
-         this.info = JSON.parse(this.info);
+         this.info = JSON.parse(this.info);                                   // Get JSON object from response body
 
-         console.dir(this.info);
-         if (this.info.status === 'invalid_zipcode') {
-          this.progress = false;
-          this.show = false;
+         if (this.info.status === 'invalid_zipcode') {                        // status check for if zip code is invalid
+          this.progress = false;                                              // clear spinning circle flag
+          this.show = false;                                                  // clear show weather data flag
           alert('Invalid Zip Code!');
          } else {
             this.progress = false;
             this.show = true;
-            this.city = this.info[0].city;
-            this.state = this.info[0].state;
+            this.city = this.info[0].city;                                    // Store the city name for zip code
+            this.state = this.info[0].state;                                  // Store the state name for zip code
          }
 
       });
@@ -55,6 +59,9 @@ export class AppComponent {
     }
   }
 
+  /////////////////////////////////////////////////
+  // This toggles displaying the zip code prompt //
+  /////////////////////////////////////////////////
   onWeatherClick() {
     this.show = false;
   }
