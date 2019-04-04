@@ -20,7 +20,7 @@ app.use(cors());                              // Was running into an access orig
 app.get('/zipcode/:zipCode', (req, res) => {      // recieve get request with zip code parameter.
 
   // URLs for the outside API calls.
-  let latLonURL = 'https://us-zipcode.api.smartystreets.com/lookup?auth-id=a149b426-aa70-2816-4a50-e3dbee7098f6&auth-token=oFoh9eI3MDam3Jl0Jrvg&zipcode=' + req.params.zipCode;
+  let latLonURL = 'https://us-zipcode.api.smartystreets.com/lookup?auth-id=534e29a8-29dc-a580-b742-f7737360f2ab&auth-token=VogMHEOyivBFjB9NNhBk&zipcode=' + req.params.zipCode;
   let WEATHER_URL = 'https://api.weather.gov/points/';
   var data;
   var forecast;
