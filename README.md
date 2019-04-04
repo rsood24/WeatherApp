@@ -19,14 +19,20 @@ The back-end server is main.js.
 ## Screenshots
 
 UI.PNG              - opening look of UI
+![image](https://user-images.githubusercontent.com/16458271/55580253-63924b00-56d7-11e9-9ac6-60603c164170.png)
 
 invldZpcd.PNG       - invalid zip code
+![image](https://user-images.githubusercontent.com/16458271/55580168-2af27180-56d7-11e9-9a9e-348729ca654b.png)
 
 invlidDig.PNG       - invalid number of digits
+![image](https://user-images.githubusercontent.com/16458271/55580224-52493e80-56d7-11e9-88fa-c5ed72fa892d.png)
 
 UInumericError.PNG  - Numeric values only
+![image](https://user-images.githubusercontent.com/16458271/55580281-74db5780-56d7-11e9-8370-d876bb3a8d64.png)
 
 WeatherData         - Successful weather retrieval
+![image](https://user-images.githubusercontent.com/16458271/55580350-96d4da00-56d7-11e9-9f2b-710a48b15402.png)
+
 
 
 ## Development server
