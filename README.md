@@ -2,6 +2,10 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.7.
 
+## Author
+
+Ritesh Sood
+
 ## Description
 
 This is a basic Angular app, which prompts the user for a zip code and displays weather information for the provided zip code.
